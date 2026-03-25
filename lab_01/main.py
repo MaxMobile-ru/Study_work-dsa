@@ -7,5 +7,17 @@
 '''
 from my_stack import *
 
-test_value = lst ('<div><p></p></div>')
-print (test_value)
+test_value = '<div><p></p></div>'
+stack01 = Stack ()
+new_entire = ''
+for i in range (len (test_value)):
+    if test_value [i] == '<':
+        new_entire += test_value [i]
+    elif test_value [i] == '>':
+        new_entire += test_value [i]
+        stack01.push (new_entire)
+        new_entire = ''
+    elif len (new_entire) != 0:
+        new_entire += test_value [i]
+
+print (stack01.items)
