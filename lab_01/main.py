@@ -5,7 +5,7 @@
 Проверка тегов HTML на корректность вложенности
 (<div><p></p></div>).
 '''
-import my_stack
+from my_stack import *
 
 test_st = Stack ()
 test_st.push ('hello!')
