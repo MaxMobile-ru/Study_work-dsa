@@ -7,4 +7,5 @@
 '''
 from my_stack import *
 
-test_value = '<div><p></p></div>'
+test_value = lst ('<div><p></p></div>')
+print (test_value)
