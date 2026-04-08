@@ -4,7 +4,7 @@ class Stack:
   def push (self, item):
     self.items.append (item)
   def pop (self):
-    if not self.isempty:
+    if not self.isempty ():
       return self.items.pop ()
     else:
       return 'Стек пуст'
