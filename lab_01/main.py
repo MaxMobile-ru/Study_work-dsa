@@ -24,7 +24,6 @@ def check_stack (stack, entire):
 test_value = '<div><p></p></div>'
 correct_stack = True
 stack01 = Stack ()
-new_entire = ''
 i = 0
 while True:
     if i >= len (test_value) or i == -1:
