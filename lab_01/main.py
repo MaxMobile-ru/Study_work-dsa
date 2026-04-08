@@ -6,12 +6,16 @@
 (<div><p></p></div>).
 '''
 from my_stack import *
+import sys
 
 def process_string (i, value):
     entire = ''
     while value [i] != '>':
         entire += value [i]
         i += 1
+        if i == len (value):
+            print ('Теги HTML незакрыты.')
+            sys.exit ()
     return entire + '>', i + 1
 
 def check_stack (stack, entire):
@@ -21,7 +25,7 @@ def check_stack (stack, entire):
     else:
         return stack, False
 
-test_value = '<div><p></p></div>'
+test_value = '<div><p></p></div'
 correct_stack = True
 stack01 = Stack ()
 i = 0
