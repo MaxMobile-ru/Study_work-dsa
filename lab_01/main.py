@@ -25,7 +25,7 @@ def check_stack (stack, entire):
     else:
         return stack, False
 
-test_value = '<div><p></p></div'
+test_value = '<div><p></p></div>'
 correct_stack = True
 stack01 = Stack ()
 i = 0
@@ -36,10 +36,8 @@ while True:
         new_entire, i = process_string (i, test_value)
         if not ('/' in new_entire):
             stack01.push (new_entire)
-            new_entire = ''
         elif '/' in new_entire:
             stack01, correct_stack = check_stack (stack01, new_entire)
-            new_entire = ''
     else:
         i = test_value.find ('<', i, -1)
     if not correct_stack:
