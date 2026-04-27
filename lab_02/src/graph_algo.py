@@ -24,8 +24,8 @@ def matrix_to_dict (matrix):
     dict_graph [i] = near_vor
   return dict_graph
 
-def relations_search (matrix):
+def relations_search (dict_graph):
   res = []
-  n = len (matrix)
-  new_way = {}
-  pass
+  way = {}
+  for item in dict_graph.keys ():
+    
