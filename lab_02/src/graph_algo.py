@@ -17,7 +17,7 @@ def generate_graph (n, lst_ribs):
 def matrix_to_dict (matrix):
   dict_graph = dict ()
   for i in range (len (matrix)):
-    near_vor = {}
+    near_vor = set ()
     for j, item in enumerate (matrix [i]):
       if item == 1:
         near_vor.add (j)
