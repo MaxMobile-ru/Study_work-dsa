@@ -1,4 +1,5 @@
 # Реализация графов
+from collections import deque
 def generate_graph (n, lst_ribs):
   matrix_rel = []
   for _ in range (n):
@@ -12,3 +13,19 @@ def generate_graph (n, lst_ribs):
     matrix_rel [start - 1] [end - 1] = 1
     matrix_rel [end - 1] [start - 1] = 1
   return matrix_rel
+
+def matrix_to_dict (matrix):
+  dict_graph = dict ()
+  for i in range (len (matrix)):
+    near_vor = {}
+    for j, item in enumerate (matrix [i]):
+      if item == 1:
+        near_vor.add (j)
+    dict_graph [i] = near_vor
+  return dict_graph
+
+def relations_search (matrix):
+  res = []
+  n = len (matrix)
+  new_way = {}
+  pass
