@@ -17,5 +17,6 @@ from graph_algo import *
 n = 8
 lst_ribs = [(1,2), (2,3), (3,4), (4,5), (5,6), (6,7), (7,8)]
 matrix_rel = generate_graph (n, lst_ribs)
+print ('Матрица смежности')
 for item in matrix_rel:
   print (item)
