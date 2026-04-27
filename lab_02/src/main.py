@@ -12,3 +12,10 @@
 Куча. Массив для Heap Sort
 [35, 26, 42, 24, 28, 37, 45]
 '''
+from graph_algo import *
+
+n = 8
+lst_ribs = [(1,2), (2,3), (3,4), (4,5), (5,6), (6,7), (7,8)]
+matrix_rel = generate_graph (n, lst_ribs)
+for item in matrix_rel:
+  print (item)
