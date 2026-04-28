@@ -58,3 +58,12 @@ def relations_search (graph):
         i = 0
         queue = []
   return res
+
+def correct_print_search (graph):
+  res = []
+  for item_a in graph:
+    tmp = {}
+    for item_b in item_a:
+      tmp.add (item_b + 1)
+    res.append (tmp)
+  return res
