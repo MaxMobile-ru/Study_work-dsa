@@ -32,15 +32,10 @@ def relations_search (graph):
   for _ in range (len (graph.keys ())):
     is_visited_lst.append (False)
   current = 0
-  
   while False in is_visited_lst:
     if len (queue) == 0:
       is_visited_lst [current] = True
       queue.append (current)
-    elif current + 1 > len (queue):
-      res.append (set (queue))
-      current = is_visited_lst.find (False)
-      queue = []
     else:
       current += 1
     queue_now = queue [current]
@@ -48,4 +43,6 @@ def relations_search (graph):
       if not (item in set (queue)):
         is_visited_lst [item] = True
         queue.append (item)
+        if not (False in is_visited_lst):
+          res.append (set (queue))
   return res
