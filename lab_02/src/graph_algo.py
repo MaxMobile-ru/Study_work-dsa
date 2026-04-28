@@ -24,8 +24,28 @@ def matrix_to_dict (matrix):
     dict_graph [i] = near_vor
   return dict_graph
 
-def relations_search (dict_graph):
+def relations_search (graph):
+  graph = matrix_to_dict (graph)
   res = []
-  way = {}
-  for item in dict_graph.keys ():
-    
+  queue = []
+  is_visited_lst = []
+  for _ in range (len (graph.keys ())):
+    is_visited_lst.append (False)
+  current = 0
+  
+  while False in is_visited_lst:
+    if len (queue) == 0:
+      is_visited_lst [current] = True
+      queue.append (current)
+    elif current + 1 > len (queue):
+      res.append (set (queue))
+      current = is_visited_lst.find (False)
+      queue = []
+    else:
+      current += 1
+    queue_now = queue [current[
+    for item in graph [queue_now]:
+      if not (item in set (queue)):
+        is_visited_lst [item] = True
+        queue.append (item)
+  return res
