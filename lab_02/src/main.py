@@ -20,3 +20,6 @@ matrix_rel = generate_graph (n, lst_ribs)
 print ('Матрица смежности')
 for item in matrix_rel:
   print (item)
+print ('Поиск компонента связности')
+res_search = relations_search (matrix_rel)
+print (correct_print_search (res_search))
