@@ -43,7 +43,7 @@ def relations_search (graph):
       queue = []
     else:
       current += 1
-    queue_now = queue [current[
+    queue_now = queue [current]
     for item in graph [queue_now]:
       if not (item in set (queue)):
         is_visited_lst [item] = True
