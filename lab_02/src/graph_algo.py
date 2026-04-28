@@ -1,5 +1,4 @@
 # Реализация графов
-from collections import deque
 def generate_graph (n, lst_ribs):
   matrix_rel = []
   for _ in range (n):
@@ -31,18 +30,31 @@ def relations_search (graph):
   is_visited_lst = []
   for _ in range (len (graph.keys ())):
     is_visited_lst.append (False)
+  i = 0
   current = 0
   while False in is_visited_lst:
     if len (queue) == 0:
       is_visited_lst [current] = True
       queue.append (current)
     else:
-      current += 1
-    queue_now = queue [current]
-    for item in graph [queue_now]:
+      i += 1
+      if i == len (queue):
+        res.append (set (queue))
+        current = is_visited_lst.index (False)
+        i = 0
+        queue = []
+        continue
+    current = queue [i]
+    for item in graph [current]:
       if not (item in set (queue)):
         is_visited_lst [item] = True
         queue.append (item)
         if not (False in is_visited_lst):
           res.append (set (queue))
+    if len (graph [current]) == 0:
+      res.append (set (queue))
+      if False in is_visited_lst:
+        current = is_visited_lst.index (False)
+        i = 0
+        queue = []
   return res
