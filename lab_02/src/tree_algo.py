@@ -27,12 +27,12 @@ def search_node_bst (node:Node, item):
     return str (node.value)
   elif item < node.value:
     if node.left == None:
-      return '\nЧисло не найдено'
+      return '-1'
     else:
       return str (node.left.value) + '\\' + search_node_bst (node.left, item)
   elif item > node.value:
     if node.right == None:
-      return '\nЧисло не найдено'
+      return '-1'
     else:
       return str (node.right.value) + '\\' + search_node_bst (node.right, item)
 
@@ -51,3 +51,6 @@ class BST:
       return 'Бинарное дерево пусто'
     else:
       path = '\\' + search_node_bst (self.root, item)
+    if '-1' in path:
+      return 'Число не найдено'
+    return path
