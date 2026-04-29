@@ -50,4 +50,4 @@ class BST:
     if self.root == None:
       return 'Бинарное дерево пусто'
     else:
-      path = '\\' + search_nod (self.root, item)
+      path = '\\' + search_node_bst (self.root, item)
