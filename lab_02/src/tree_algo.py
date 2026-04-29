@@ -29,12 +29,12 @@ def search_node_bst (node:Node, item):
     if node.left == None:
       return '-1'
     else:
-      return str (node.left.value) + '\\' + search_node_bst (node.left, item)
+      return str (node.value) + '(left)' + '\\' + search_node_bst (node.left, item)
   elif item > node.value:
     if node.right == None:
       return '-1'
     else:
-      return str (node.right.value) + '\\' + search_node_bst (node.right, item)
+      return str (node.value) + '(right)' + '\\' + search_node_bst (node.right, item)
 
 class BST:
   def __init__ (self):
