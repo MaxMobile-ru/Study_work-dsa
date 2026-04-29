@@ -19,7 +19,7 @@ class BST:
       else:
         new_nod (self.left, item)
 
-  def search_nod (self, item, path='\'):
+  def search_nod (self, item, path='\\'):
     if self.root == item:
       return path + str (item)
     elif item < self.root:
