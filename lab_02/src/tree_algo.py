@@ -22,8 +22,6 @@ def new_node_bst (node:Node, item):
            node.right = new_node_bst (node.right, item)
     return node
 
-
-
 class BST:
   def __init__ (self):
     self.root = None
