@@ -12,17 +12,17 @@ class BST:
       if self.right == None:
         self.right = item
       else:
-        self.new_nod (self.right, item)
+        self.right.new_nod (item)
     elif item < self.root:
       if self.left == None:
         self.left = item
       else:
-        self.new_nod (self.left, item)
+        self.left.new_nod (item)
 
   def search_nod (self, item, path='\\'):
     if self.root == item:
       return path + str (item)
     elif item < self.root:
-      return self.search_nod (self.left, item, path + str (item) + '\\')
+      return self.left.search_nod (item, path + str (item) + '\\')
     elif item > self.root:
-      return self.search_nod (self.right, item, path + str (item) + '\\')
+      return self.right.search_nod (item, path + str (item) + '\\')
