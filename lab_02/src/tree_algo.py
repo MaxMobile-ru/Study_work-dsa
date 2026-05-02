@@ -81,3 +81,71 @@ class BST:
     if direction == 'Бинарное дерево пусто' or direction == 'Число не найдено':
       return direction
     self.root = func_del_node_bst (self.root, item)
+
+def left_exist (i, heap):
+  if 2 * i < len (heap):
+    return True
+  else:
+    return False
+def right_exist (i, heap):
+  if 2 * i + 1 < len (heap):
+    return True
+  else:
+    return False
+
+class Heap:
+  def __init__ (self):
+    self.items = [None,]
+  
+  def add (self, item):
+    self.items.append (item)
+    i = len (self.items) - 1
+    while i > 1 and self.items [i] > self.items [i//2]:
+      self.items [i], self.items [i//2] = self.items [i//2], self.items [i]
+      i = i // 2
+  
+  def pop (self):
+    if len (self.items) == 2:
+      return self.items.pop ()
+    res = self.items [1]
+    self.items [1] = self.items.pop ()
+    i = 1
+    while right_exist (i, self.items) or left_exist (i, self.items):
+      if left_exist (i, self.items) and not right_exist (i, self.items):
+        if self.items [i] < self.items [2*i]:
+          self.items [i], self.items [2*i] = self.items [2*i], self.items [i]
+          i = 2 * i
+        else:
+          break
+      elif not left_exist (i, self.items) and right_exist (i, self.items):
+        if self.items [i] < self.items [2 * i + 1]:
+          self.items [i], self.items [2*i+1] = self.items [2*i+1], self.items [i]
+          i = 2 * i + 1
+        else:
+          break
+      elif left_exist (i, self.items) and right_exist (i, self.items):
+        if self.items [i] < self.items [2*i] and self.items [i] < self.items [2*i+1]:
+          choice = max (self.items [2*i], self.items [2*i+1])
+          if choice == self.items [2*i]:
+            self.items [i], self.items [2*i] = self.items [2*i], self.items [i]
+            i = 2 * i
+          elif choice == self.items [2*i+1]:
+            self.items [i], self.items [2*i+1] = self.items [2*i+1], self.items [i]
+            i = 2 * i + 1
+        elif self.items [i] < self.items [2*i]:
+          self.items [i], self.items [2*i] = self.items [2*i], self.items [i]
+          i = 2 * i
+        elif self.items [i] < self.items [2*i+1]:
+          self.items [i], self.items [2*i+1] = self.items [2*i+1], self.items [i]
+          i = 2 * i + 1
+        else:
+          break
+    return res
+
+def heap_sort (lst):
+  heap = Heap ()
+  for item in lst:
+    heap.add (item)
+  for i in range (1, len (lst) + 1):
+    lst [-i] = heap.pop ()
+  return lst

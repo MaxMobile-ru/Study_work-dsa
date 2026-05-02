@@ -24,6 +24,7 @@ for item in matrix_rel:
 print ('Поиск компонента связности')
 res_search = relations_search (matrix_rel)
 print (correct_print_search (res_search))
+print ()
 
 tree = BST ()
 for item in [35, 26, 42, 24, 28, 37, 45]:
@@ -34,3 +35,7 @@ print (tree.search_node (42))
 tree.delete_node (26)
 print ('Поиск удалённого элемента', 26)
 print (tree.search_node (26))
+print ()
+
+print ('Сортировка массива кучей')
+print (heap_sort ([35, 26, 42, 24, 28, 37, 45]))
