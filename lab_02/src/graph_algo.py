@@ -1,13 +1,5 @@
 # Реализация графов
 def generate_graph (n, lst_ribs):
-  '''
-  Генерирует матрицу смежности для графа и возвращает её.
-  Параметры:
-  - n (int) - количество вершин
-  - lst_ribs (list) - список рёбер.
-  Результат:
-  - matrix_rel (list) - матрица смежности.
-  '''
   matrix_rel = []
   for _ in range (n):
     tmp = []
@@ -22,10 +14,6 @@ def generate_graph (n, lst_ribs):
   return matrix_rel
 
 def matrix_to_dict (matrix):
-  '''
-  Вспомогательная функция для relations_search.
-  Конвертирует матрицу смежности в списки смежности.
-  '''
   dict_graph = dict ()
   for i in range (len (matrix)):
     near_vor = set ()
@@ -36,13 +24,6 @@ def matrix_to_dict (matrix):
   return dict_graph
 
 def relations_search (graph):
-  '''
-  Выполняет поиск компонента связности.
-  Параметры:
-  - graph (list) - матрица смежности графа.
-  Результаты:
-  - res (list) - список множеств, показывающих связность вершин.
-  '''
   graph = matrix_to_dict (graph)
   res = []
   queue = []
@@ -79,12 +60,6 @@ def relations_search (graph):
   return res
 
 def correct_print_search (graph):
-  '''
-  Вспомогательная функция для relations_search.
-  Корректирует результат relations_search,
-  увеличивая номера вершин на 1.
-  (Начало нумерации смещается с 0 на 1.)
-  '''
   res = []
   for item_a in graph:
     tmp = set ()
