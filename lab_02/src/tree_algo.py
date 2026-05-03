@@ -23,7 +23,9 @@ def new_node_bst (node:Node, item):
   return node
 
 def search_node_bst (node:Node, item):
-  if item == node.value:
+  if node.value == None:
+    return '-1'
+  elif item == node.value:
     return str (node.value)
   elif item < node.value:
     if node.left == None:
