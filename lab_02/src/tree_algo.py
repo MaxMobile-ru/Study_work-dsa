@@ -103,7 +103,6 @@ def heap_sort (arr):
   for i in range (n // 2, 0, -1):
     arr = heapify (arr, n, i)
   for i in range (n, 0, -1):
-    print (i)
     arr [1], arr [i] = arr [i], arr [1]
     arr = heapify (arr, i - 1, 1)
   return arr [1:]
