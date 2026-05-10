@@ -1,22 +1,24 @@
 # Реализация графов
 def generate_graph (n, lst_ribs):
-  matrix_rel = []
+  matrix_rel = [None,]
   for _ in range (n):
-    tmp = []
+    tmp = [None,]
     for _ in range (n):
       tmp.append (0)
     matrix_rel.append (tmp)
   for item in lst_ribs:
     start = item [0]
     end = item [1]
-    matrix_rel [start - 1] [end - 1] = 1
-    matrix_rel [end - 1] [start - 1] = 1
+    matrix_rel [start] [end] = 1
+    matrix_rel [end] [start] = 1
   return matrix_rel
 
 def matrix_to_dict (matrix):
   dict_graph = dict ()
   for i in range (len (matrix)):
     near_vor = set ()
+    if i == 0:
+      continue
     for j, item in enumerate (matrix [i]):
       if item == 1:
         near_vor.add (j)
@@ -35,7 +37,6 @@ def relations_search (graph):
     if len (queue) == 0:
       current = is_visited_lst.index (False)
       queue.append (current)
-      is_visited_lst [current] = True
       continue
     current = queue [i]
     is_visited_lst [current] = True
@@ -48,13 +49,4 @@ def relations_search (graph):
       i = 0
     else:
       i += 1
-  return res
-
-def correct_print_search (graph):
-  res = []
-  for item_a in graph:
-    tmp = set ()
-    for item_b in item_a:
-      tmp.add (item_b + 1)
-    res.append (tmp)
   return res
