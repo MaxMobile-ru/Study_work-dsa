@@ -16,14 +16,13 @@ from graph_algo import *
 from tree_algo import *
 
 n = 8
-lst_ribs = [(1,2), (2,3), (3,4), (4,5), (5,6), (6,7), (7,8)]
+lst_ribs = [(1,2), (2,3), (3,4), (4,5), (5,6), (6,7), (7, 8)]
 matrix_rel = generate_graph (n, lst_ribs)
 print ('Матрица смежности')
-for item in matrix_rel:
-  print (item)
+for item in matrix_rel[1:]:
+  print (item[1:])
 print ('Поиск компонента связности')
-res_search = relations_search (matrix_rel)
-print (correct_print_search (res_search))
+print (relations_search (matrix_rel))
 print ()
 
 tree = BST ()
