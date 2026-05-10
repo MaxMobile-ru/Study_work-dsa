@@ -31,7 +31,6 @@ def relations_search (graph):
   queue = []
   i = 0
   res = list ()
-  way = set ()
   while False in is_visited_lst:
     if len (queue) == 0:
       current = is_visited_lst.index (False)
@@ -39,15 +38,13 @@ def relations_search (graph):
       is_visited_lst [current] = True
       continue
     current = queue [i]
-    way.add (current)
     is_visited_lst [current] = True
     for item in graph [current]:
       if not (item in set (queue)):
         queue.append (item)
     if i + 1 == len (queue):
+      res.append (set (queue))
       queue = []
-      res.append (way)
-      way = set ()
       i = 0
     else:
       i += 1
