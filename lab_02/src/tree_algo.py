@@ -44,7 +44,7 @@ def func_del_node_bst (node:Node, item):
     if node.left == None and node.right == None:
       return node
     else:
-      node.value = find_replacer (node.left)
+      node.value, node.left = find_replacer (node.left)
   elif item < node.value:
     node.left = func_del_node_bst (node.left, item)
   elif item > node.value:
@@ -55,9 +55,9 @@ def find_replacer (node:Node):
   if node.left == None and node.right == None:
     res = node.value
     node.value = None
-    return res
   else:
-    return find_replacer (node.right)
+    res, node.right = find_replacer (node.right)
+  return res, node
 
 class BST:
   def __init__ (self):
